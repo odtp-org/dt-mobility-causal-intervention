@@ -7,43 +7,43 @@ EXECUTION_NAME=execution
 
 rm  ${DT_PATH}/${DIGITAL_TWIN_NAME}/${EXECUTION_NAME}/.gitkeep
 
-# # Pulling all the components and versions
-# odtp new odtp-component-entry \
-# --name odtp-sql-dataloader \
-# --component-version v0.1.0 \
-# --repository https://github.com/odtp-org/odtp-sql-dataloader
+# Pulling all the components and versions
+odtp new odtp-component-entry \
+--name odtp-sql-dataloader \
+--component-version v0.1.0 \
+--repository https://github.com/odtp-org/odtp-sql-dataloader
 
-# odtp new odtp-component-entry \
-# --name odtp-postgis-dataloader \
-# --component-version v0.1.1 \
-# --repository https://github.com/odtp-org/odtp-postgis-dataloader
+odtp new odtp-component-entry \
+--name odtp-postgis-dataloader \
+--component-version v0.1.1 \
+--repository https://github.com/odtp-org/odtp-postgis-dataloader
 
-# odtp new odtp-component-entry \
-# --name odtp-mobility-simulation \
-# --component-version v0.1.0 \
-# --repository https://github.com/odtp-org/odtp-mobility-simulation
+odtp new odtp-component-entry \
+--name odtp-mobility-simulation \
+--component-version v0.1.0 \
+--repository https://github.com/odtp-org/odtp-mobility-simulation
 
-# odtp new odtp-component-entry \
-# --name odtp-mobility-metrics \
-# --component-version v0.0.1 \
-# --repository https://github.com/odtp-org/odtp-mobility-metrics
+odtp new odtp-component-entry \
+--name odtp-mobility-metrics \
+--component-version v0.0.1 \
+--repository https://github.com/odtp-org/odtp-mobility-metrics
 
-# odtp new odtp-component-entry \
-# --name odtp-next-location-prediction \
-# --component-version v0.0.1 \
-# --repository https://github.com/odtp-org/odtp-next-location-prediction
+odtp new odtp-component-entry \
+--name odtp-next-location-prediction \
+--component-version v0.0.1 \
+--repository https://github.com/odtp-org/odtp-next-location-prediction
 
 odtp new odtp-component-entry \
 --name odtp-pygwalker \
---component-version 0.1.3 \
+--component-version v0.1.3 \
 --repository https://github.com/odtp-org/odtp-pygwalker
 
-# # Creating new digital twin
-# odtp new digital-twin-entry \
-# --user-email ${ODTP_USER_EMAIL}  \
-# --name ${DIGITAL_TWIN_NAME}
+# Creating new digital twin
+odtp new digital-twin-entry \
+--user-email ${ODTP_USER_EMAIL}  \
+--name ${DIGITAL_TWIN_NAME}
 
-# # Creating new execution
+# Creating new execution
 odtp new execution-entry \
 --name ${EXECUTION_NAME} \
 --digital-twin-name ${DIGITAL_TWIN_NAME} \
