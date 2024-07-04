@@ -1,9 +1,9 @@
-PROTOCOL=postgresql
 HOST=ikgpgis.ethz.ch
 PORT=5432
 DATABASE=hai
-QUERY="SELECT * FROM sensitive.loc_seq"
-OUTPUT_FILENAME=loc_seq.csv
+QUERY="SELECT * FROM sensitive.locs"
+OUTPUT_FILENAME=locs.csv
+GEOM_COL=geometry
 
 ODTP_LOGS_IN_DB=TRUE
 ODTP_LOG_PAGE_SIZE=20
