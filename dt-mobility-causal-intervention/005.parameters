@@ -1,5 +1,6 @@
 #Next location prediction
-TRAINING=True
+TRAINING=False
+RUN_NAME=dtepr_mhsa
 TRAIN_DATASET=dtepr
 INFERENCE_DATA_DIR=inference
 PRETRAIN_DIR=dtepr_mhsa_demo
