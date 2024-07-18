@@ -1,5 +1,5 @@
-dt-mobility-causal-intervention/execution/*odtp*
-dt-mobility-causal-intervention/*.secrets
+#dt-mobility-causal-intervention/*
+secrets/*.secrets
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

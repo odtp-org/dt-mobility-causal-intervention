@@ -11,8 +11,8 @@ graph LR
         SQLDataloader --> ODTPMobilitySimulation[ODTP Mobility Simulation]
         PostGisDataloader --> ODTPMobilitySimulation
         ODTPMobilitySimulation --> ODTpMetrics[ODTP Mobility Metrics]
-        ODTpMetrics --> PYGWalker[pyGWalker CSV Visualization]
         ODTPMobilitySimulation --> ODTpNextLocationPrediction[ODTP Next Location Prediction]
+        ODTpNextLocationPrediction --> PYGWalker[pyGWalker CSV Visualization]
     end
 
     Model[Model] --> ODTpNextLocationPrediction
@@ -30,10 +30,10 @@ In order to adapt this to the current ODTP pipeline, the workflow is executed in
 ## Tutorial
 
 1. Clone this repository
-2. Edit dt-example.sh with the ODTP user email
-3. Configure the parameters. 
-4. Rename `001.secrets.dist` and `002.secrets.dist` to `001.secrets` and `002.secrets`. Add your credentials. 
-5. Run the bash script: sh dt-mobility-causal-intervention.sh
+2. Edit `dt-mobility-causal-intervention.sh` with the ODTP user email and the desired digital twin and execution name. 
+3. Configure the parameters in `parameters`
+4. Configure the secrets in `secrets`. Rename `001.secrets.dist` and `002.secrets.dist` to `001.secrets` and `002.secrets`. Add your credentials. 
+5. Run the bash script in your odtp instance: `sh dt-mobility-causal-intervention.sh`
 
 
 How to remove the execution? This command will delete any mongoDB entry and the content of the execution folder, allowing for a fresh execution.
