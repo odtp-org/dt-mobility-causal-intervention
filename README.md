@@ -11,7 +11,7 @@ graph LR
         SQLDataloader --> ODTPMobilitySimulation[ODTP Mobility Simulation]
         PostGisDataloader --> ODTPMobilitySimulation
         ODTPMobilitySimulation --> ODTpMetrics[ODTP Mobility Metrics]
-        ODTpMetrics -> pyGWalker[pyGWalker CSV Visualization]
+        ODTpMetrics -> PYGWalker[pyGWalker CSV Visualization]
         ODTPMobilitySimulation --> ODTpNextLocationPrediction[ODTP Next Location Prediction]
     end
 
