@@ -12,7 +12,12 @@ graph LR
         PostGisDataloader --> ODTPMobilitySimulation
         ODTPMobilitySimulation --> ODTpMetrics[ODTP Mobility Metrics]
         ODTPMobilitySimulation --> ODTpNextLocationPrediction[ODTP Next Location Prediction]
+
         ODTpNextLocationPrediction --> PYGWalker[pyGWalker CSV Visualization]
+        ODTpMetrics --> PYGWalker[pyGWalker CSV Visualization]
+        ODTPMobilitySimulation --> PYGWalker[pyGWalker CSV Visualization]
+        PostGisDataloader --> PYGWalker[pyGWalker CSV Visualization]
+        SQLDataloader --> PYGWalker[pyGWalker CSV Visualization]
     end
 
     Model[Model] --> ODTpNextLocationPrediction
