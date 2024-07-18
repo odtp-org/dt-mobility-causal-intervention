@@ -10,12 +10,22 @@ graph LR
     subgraph ODTP
         SQLDataloader --> ODTPMobilitySimulation[ODTP Mobility Simulation]
         PostGisDataloader --> ODTPMobilitySimulation
-        ODTPMobilitySimulation --> ODTpMetrics[ODTP Metrics]
+        ODTPMobilitySimulation --> ODTpMetrics[ODTP Mobility Metrics]
+        ODTpMetrics -> pyGWalker[pyGWalker CSV Visualization]
         ODTPMobilitySimulation --> ODTpNextLocationPrediction[ODTP Next Location Prediction]
     end
 
     Model[Model] --> ODTpNextLocationPrediction
 ```
+
+In order to adapt this to the current ODTP pipeline, the workflow is executed in this order:
+
+1. SQL-Dataloader
+2. Post-GIS Dataloader
+3. Mobility Simulation 
+4. Mobility Metrics
+5. Next Location Prediction
+6. pyGWalker
 
 ## Tutorial
 

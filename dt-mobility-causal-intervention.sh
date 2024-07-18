@@ -47,9 +47,9 @@ odtp new digital-twin-entry \
 odtp new execution-entry \
 --name ${EXECUTION_NAME} \
 --digital-twin-name ${DIGITAL_TWIN_NAME} \
---component-tags odtp-sql-dataloader:v0.1.0,odtp-postgis-dataloader:v0.1.1,odtp-mobility-simulation:v0.1.0,odtp-pygwalker:v0.1.3 \
---parameter-files ${DT_PATH}/${DIGITAL_TWIN_NAME}/001.parameters,${DT_PATH}/${DIGITAL_TWIN_NAME}/002.parameters,${DT_PATH}/${DIGITAL_TWIN_NAME}/003.parameters, \
---ports ,,,8555:8501
+--component-tags odtp-sql-dataloader:v0.1.0,odtp-postgis-dataloader:v0.1.1,odtp-mobility-simulation:v0.1.0,odtp-mobility-metrics:v0.0.1,odtp-next-location-prediction:v0.0.1,odtp-pygwalker:v0.1.3 \
+--parameter-files ${DT_PATH}/${DIGITAL_TWIN_NAME}/001.parameters,${DT_PATH}/${DIGITAL_TWIN_NAME}/002.parameters,${DT_PATH}/${DIGITAL_TWIN_NAME}/003.parameters,${DT_PATH}/${DIGITAL_TWIN_NAME}/004.parameters,${DT_PATH}/${DIGITAL_TWIN_NAME}/005.parameters, \
+--ports ,,,,,8555:8501
 
 # Preparing execution
 odtp execution prepare \
@@ -59,7 +59,7 @@ odtp execution prepare \
 # Running execution
 odtp execution run \
 --execution-name ${EXECUTION_NAME} \
---secrets-files ${DT_PATH}/${DIGITAL_TWIN_NAME}/001.secrets,${DT_PATH}/${DIGITAL_TWIN_NAME}/002.secrets,, \
+--secrets-files ${DT_PATH}/${DIGITAL_TWIN_NAME}/001.secrets,${DT_PATH}/${DIGITAL_TWIN_NAME}/002.secrets,,,, \
 --project-path ${DT_PATH}/${DIGITAL_TWIN_NAME}/${EXECUTION_NAME} \
 
 
