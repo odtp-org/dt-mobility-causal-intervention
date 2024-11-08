@@ -61,7 +61,7 @@ odtp execution prepare \
 # Running execution
 odtp execution run \
 --execution-name ${EXECUTION_NAME} \
---secrets-files ${SECRETS_PATH}/0_odtp-sql-dataloader,${SECRETS_PATH}/1_odtp-postgis-dataloader,,,, \
+--secrets-files ${SECRETS_PATH}/0_odtp-sql-dataloader.secrets,${SECRETS_PATH}/1_odtp-postgis-dataloader.secrets,,,, \
 --project-path ${DT_PATH}/${DIGITAL_TWIN_NAME}/${EXECUTION_NAME} \
 
 
