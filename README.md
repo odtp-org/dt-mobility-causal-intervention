@@ -43,3 +43,13 @@ How to remove the execution? This command will delete any mongoDB entry and the 
 ```bash
 odtp execution delete --execution-name execution --project-path $(pwd)/dt-mobility-causal-intervention/execution
 ```
+
+
+## Changelog
+
+- v0.2.0
+    - Updated components
+    - Added docker-compose for testing purposes. 
+
+- v0.1.0
+    - Initial implementation
