@@ -1,51 +1,51 @@
 services:
-  # odtp-sql-dataloader:
-  #   image: caviri/odtp-sql-dataloader:0.1.0
-  #   env_file:
-  #     - ./parameters/001_odtp-sql-dataloader.parameters
-  #     - ./secrets/001_odtp-sql-dataloader.secrets
-  #   volumes:
-  #     - ./execution/001_odtp_sql_dataloader_v0.1.1/odtp-input:/odtp/odtp-input
-  #     - ./execution/001_odtp_sql_dataloader_v0.1.1/odtp-output:/odtp/odtp-output
-  #     - ./execution/001_odtp_sql_dataloader_v0.1.1/odtp-logs:/odtp/odtp-logs
+  odtp-sql-dataloader:
+    image: caviri/odtp-sql-dataloader:0.1.0
+    env_file:
+      - ./parameters/001_odtp-sql-dataloader.parameters
+      - ./secrets/001_odtp-sql-dataloader.secrets
+    volumes:
+      - ./execution/001_odtp_sql_dataloader_v0.1.1/odtp-input:/odtp/odtp-input
+      - ./execution/001_odtp_sql_dataloader_v0.1.1/odtp-output:/odtp/odtp-output
+      - ./execution/001_odtp_sql_dataloader_v0.1.1/odtp-logs:/odtp/odtp-logs
 
-  # odtp-postgis-dataloader:
-  #   image: caviri/odtp-postgis-dataloader:v0.1.2
-  #   env_file:
-  #     - ./parameters/002_odtp-postgis-dataloader.parameters
-  #     - ./secrets/002_odtp-postgis-dataloader.secrets
-  #   volumes:
-  #     - ./execution/001_odtp_sql_dataloader_v0.1.1/odtp-output:/odtp/odtp-input
-  #     - ./execution/002_odtp-postgis-dataloader_v0.1.2/odtp-output:/odtp/odtp-output
-  #     - ./execution/002_odtp-postgis-dataloader_v0.1.2/odtp-logs:/odtp/odtp-logs
-  #   depends_on:
-  #     odtp-sql-dataloader:
-  #       condition: service_completed_successfully
+  odtp-postgis-dataloader:
+    image: caviri/odtp-postgis-dataloader:v0.1.2
+    env_file:
+      - ./parameters/002_odtp-postgis-dataloader.parameters
+      - ./secrets/002_odtp-postgis-dataloader.secrets
+    volumes:
+      - ./execution/001_odtp_sql_dataloader_v0.1.1/odtp-output:/odtp/odtp-input
+      - ./execution/002_odtp-postgis-dataloader_v0.1.2/odtp-output:/odtp/odtp-output
+      - ./execution/002_odtp-postgis-dataloader_v0.1.2/odtp-logs:/odtp/odtp-logs
+    depends_on:
+      odtp-sql-dataloader:
+        condition: service_completed_successfully
 
 
-  # odtp-mobility-simulation:
-  #   image: caviri/odtp-mobility-simulation:v0.1.1
-  #   env_file:
-  #     - ./parameters/003_odtp-mobility-simulation.parameters
-  #   volumes:
-  #     - ./execution/002_odtp-postgis-dataloader_v0.1.2/odtp-output:/odtp/odtp-input
-  #     - ./execution/003_odtp-mobility-simulation_v0.1.1/odtp-output:/odtp/odtp-output
-  #     - ./execution/003_odtp-mobility-simulation_v0.1.1/odtp-logs:/odtp/odtp-logs
-  #   depends_on:
-  #     odtp-postgis-dataloader:
-  #       condition: service_completed_successfully
+  odtp-mobility-simulation:
+    image: caviri/odtp-mobility-simulation:v0.1.1
+    env_file:
+      - ./parameters/003_odtp-mobility-simulation.parameters
+    volumes:
+      - ./execution/002_odtp-postgis-dataloader_v0.1.2/odtp-output:/odtp/odtp-input
+      - ./execution/003_odtp-mobility-simulation_v0.1.1/odtp-output:/odtp/odtp-output
+      - ./execution/003_odtp-mobility-simulation_v0.1.1/odtp-logs:/odtp/odtp-logs
+    depends_on:
+      odtp-postgis-dataloader:
+        condition: service_completed_successfully
 
-  # odtp-mobility-metrics:
-  #   image: caviri/odtp-mobility-metrics:v0.0.3
-  #   env_file:
-  #     - ./parameters/004_odtp-mobility-metrics.parameters
-  #   volumes:
-  #     - ./execution/003_odtp-mobility-simulation_v0.1.1/odtp-output:/odtp/odtp-input
-  #     - ./execution/004_odtp-mobility-metrics_v0.0.3/odtp-output:/odtp/odtp-output
-  #     - ./execution/004_odtp-mobility-metrics_v0.0.3/odtp-logs:/odtp/odtp-logs
-  #   depends_on:
-  #     odtp-mobility-simulation:
-  #       condition: service_completed_successfully
+  odtp-mobility-metrics:
+    image: caviri/odtp-mobility-metrics:v0.0.3
+    env_file:
+      - ./parameters/004_odtp-mobility-metrics.parameters
+    volumes:
+      - ./execution/003_odtp-mobility-simulation_v0.1.1/odtp-output:/odtp/odtp-input
+      - ./execution/004_odtp-mobility-metrics_v0.0.3/odtp-output:/odtp/odtp-output
+      - ./execution/004_odtp-mobility-metrics_v0.0.3/odtp-logs:/odtp/odtp-logs
+    depends_on:
+      odtp-mobility-simulation:
+        condition: service_completed_successfully
 
   odtp-next-location-prediction:
     image: caviri/odtp-next-location-prediction:v0.0.4
