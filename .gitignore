@@ -1,5 +1,6 @@
 dt-mobility-causal-intervention/*
 secrets/*.secrets
+execution
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
