@@ -62,9 +62,9 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
-    # depends_on:
-    #   odtp-mobility-metrics:
-    #     condition: service_completed_successfully
+    depends_on:
+      odtp-mobility-metrics:
+        condition: service_completed_successfully
 
   odtp-pygwalker:
     image: caviri/odtp-pygwalker:v0.1.4
